@@ -5,4 +5,8 @@
   tasks:
     - name: Ejecutar ls -la /var
       ansible.builtin.command: ls -la /var
+      register: resultado_ls
 
+    - name: Mostrar resultado en pantalla
+      ansible.builtin.debug:
+        var: resultado_ls.stdout_lines
